@@ -25,9 +25,7 @@ from . import ui_mainwindow
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(
-        self,
-        parent: T.Optional[QtWidgets.QWidget] = None,
-        flags: Qt.WindowFlags = Qt.WindowFlags(),
+        self, parent: T.Optional[QtWidgets.QWidget] = None, flags: Qt.WindowFlags = Qt.WindowFlags(),
     ):
         super().__init__(parent=parent, flags=flags)
         ui_mainwindow.Ui_MainWindow().setupUi(self)
