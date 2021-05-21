@@ -33,4 +33,4 @@ class MainWindow(QtWidgets.QMainWindow):
         ui_mainwindow.Ui_MainWindow().setupUi(self)
 
     def showEvent(self, event: QtGui.QShowEvent):
-        super().showEvent(event )
+        super().showEvent(event)
