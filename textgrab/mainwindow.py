@@ -15,8 +15,22 @@
 # You should have received a copy of the GNU General Public License
 # along with textgrab.  If not, see <http://www.gnu.org/licenses/>.
 
-__version__ = "0.1.0"
-__author__ = "PowerSnail"
+import typing as T
+
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import Qt
+
+from . import ui_mainwindow
 
 
-from .mainwindow import MainWindow
+class MainWindow(QtWidgets.QMainWindow):
+    def __init__(
+        self,
+        parent: T.Optional[QtWidgets.QWidget] = None,
+        flags: Qt.WindowFlags = Qt.WindowFlags(),
+    ):
+        super().__init__(parent=parent, flags=flags)
+        ui_mainwindow.Ui_MainWindow().setupUi(self)
+
+    def showEvent(self, event: QtGui.QShowEvent):
+        super().showEvent(event )

@@ -15,8 +15,31 @@
 # You should have received a copy of the GNU General Public License
 # along with textgrab.  If not, see <http://www.gnu.org/licenses/>.
 
-__version__ = "0.1.0"
-__author__ = "PowerSnail"
+
+"""textgrab.
+
+Usage:
+    textgrab 
+    textgrab --version
+    textgrab (-h | --help)
+
+Options:
+    -h --help           Show help
+    --version           Print Version
+"""
+
+import docopt
+import textgrab
+from PySide6 import QtWidgets
 
 
-from .mainwindow import MainWindow
+def main():
+    args = docopt.docopt(__doc__, version=textgrab.__version__)
+    app = QtWidgets.QApplication()
+    w = textgrab.MainWindow()
+    w.show()
+    app.exec()
+
+
+if __name__ == "__main__":
+    main()
