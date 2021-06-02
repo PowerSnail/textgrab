@@ -28,17 +28,34 @@ Options:
     --version           Print Version
 """
 
+import signal
+
 import docopt
+from PySide6 import QtCore, QtWidgets
+
 import textgrab
-from PySide6 import QtWidgets
+
+
+def ctrl_c_hack(app):
+    signal.signal(signal.SIGINT, lambda *_: app.quit())
+
+    _interpreter_hack_timer = QtCore.QTimer(app)
+    _interpreter_hack_timer.setInterval(1000)
+    _interpreter_hack_timer.timeout.connect(lambda: ...)
+    _interpreter_hack_timer.start()
 
 
 def main():
     args = docopt.docopt(__doc__, version=textgrab.__version__)
-    app = QtWidgets.QApplication()
+
+    app = QtWidgets.QApplication([textgrab.__name__])
+    ctrl_c_hack(app)
+
     w = textgrab.MainWindow()
     w.show()
+
     app.exec()
+    del w  # Must remove reference to window for cleanup to occur
 
 
 if __name__ == "__main__":
