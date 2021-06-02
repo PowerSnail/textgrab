@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "textgrab"
-version = "0.1.0"
-description = ""
+version = "1.0.0"
+description = "Extracts text from images, screenshots, and clipboard."
 authors = ["PowerSnail <hj@powersnail.com>"]
-license = "GPLv2"
+license = "GPL-2.0-only"
+readme = "README.md"
+homepage = "https://github.com/PowerSnail/textgrab"
 
 [tool.poetry.dependencies]
 python = "~3.9"
@@ -12,6 +14,9 @@ PySide6 = "*"
 docopt-ng = "^0.7.2"
 Pillow = "^8.2.0"
 appdirs = "^1.4.4"
+
+[tool.poetry.scripts]
+textgrab = "textgrab.run:main"
 
 [tool.poetry.dev-dependencies]
 black = "^21.5b1"
