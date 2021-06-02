@@ -42,9 +42,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainwindow.Ui_MainWindow):
     open_dir: str = _default_picture_dir()
 
     def __init__(
-        self,
-        parent: T.Optional[QtWidgets.QWidget] = None,
-        flags: Qt.WindowFlags = Qt.WindowFlags(),
+        self, parent: T.Optional[QtWidgets.QWidget] = None, flags: Qt.WindowFlags = Qt.WindowFlags(),
     ):
         super().__init__(parent=parent, flags=flags)
         self.setupUi(self)
@@ -108,10 +106,7 @@ class MainWindow(QtWidgets.QMainWindow, ui_mainwindow.Ui_MainWindow):
     @QtCore.Slot()
     def open_image(self):
         file, _ = QtWidgets.QFileDialog.getOpenFileName(
-            self,
-            self.tr("Open Image..."),
-            dir=self.open_dir,
-            filter=self.tr("Image Files (*.png *.jpg *.jpeg *.bmp)"),
+            self, self.tr("Open Image..."), dir=self.open_dir, filter=self.tr("Image Files (*.png *.jpg *.jpeg *.bmp)"),
         )
         if not file:
             return

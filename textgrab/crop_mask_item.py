@@ -156,6 +156,5 @@ def has_same_sign(x, y):  # if one is zeros, always return True
 def put_inside(point: QtCore.QPointF, bound: QtCore.QRectF):
     bound = bound.normalized()
     return QtCore.QPointF(
-        max(min(point.x(), bound.right()), bound.left()),
-        max(min(point.y(), bound.bottom()), bound.top()),
+        max(min(point.x(), bound.right()), bound.left()), max(min(point.y(), bound.bottom()), bound.top()),
     )
